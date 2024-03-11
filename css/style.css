@@ -1,0 +1,158 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color:#333;
+    box-sizing: border-box;
+}
+
+
+/* header css section */
+
+#header{
+    height: 100px;
+    width: 100%;
+    background-color: #f1f1f1;
+    padding: 10px 10%;
+    display: flex;
+    justify-content: space-between;
+    /* align-content: center; */
+}
+
+.header-logo img{
+    height: 80px;
+    /* cursor: pointer; */
+}
+
+.header-nav{
+    display: flex;
+    list-style-type: none;
+}
+
+.header-nav li{
+    /* display: block; */
+    align-self: center;
+}
+
+.header-nav li a{
+    display: block;
+    text-decoration: none;
+    padding: 12px 6px;
+}
+
+.header-nav li:hover a{
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+/* main css section */
+#main{
+    padding: 0 10%;
+    background: #fff;
+}
+
+.section{
+    margin-top: 12px;
+    margin-bottom: 48px;
+}
+
+.title-section{
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.list-products{
+    background: #f1f1f1;
+    border-radius: 2px;
+    padding: 8px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product{
+    width: calc(100%/6);
+    padding: 6px;
+}
+
+.product-card{
+    display: block;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 6px;
+    text-decoration: none;
+}
+
+.product-card-img{
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.product-img{
+    width: 100%;
+}
+
+.product-card-content{
+    margin-top: 6px;
+}
+
+.product-name{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    max-width: 100%;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.product-price{
+    font-size: 14px;
+    font-weight: 600;
+    color: #ee4e2d;
+    /* margin-bottom: 4px; */
+}
+
+.product-manufacturer{
+    font-size: 10px;
+    font-weight: 400;
+    color: #bbb;
+}
+
+.see-more{
+    display: block;
+    font-size: 12px;
+    /* opacity: 0.8; */
+    text-align: center;
+    background: #f1f1f1;
+    border-radius: 2px;
+    padding-bottom: 16px;
+}
+
+/* footer css section */
+#footer{
+    display: block;
+    height: 80px;
+    width: 100%;
+    text-align: center;
+    padding: 24px;
+    background-color: #f1f1f1;
+}
+
+.list-socials{
+    display: block;
+}
+
+.social-item{
+    display: inline-block;
+}
+
+.social-item a{
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.footer-title{
+    font-size: 10px;
+    opacity: 0.6;
+}
