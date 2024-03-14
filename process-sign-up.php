@@ -1,5 +1,7 @@
 <?php
-    if(empty($_POST['name'])||empty($_POST['email'])||empty($_POST['password'])||empty($_POST['re_password'])){
+    if(empty($_POST['name'])||empty($_POST['email'])
+    ||empty($_POST['password'])||empty($_POST['re_password'])
+    ||empty($_POST['phone_number'])||empty($_POST['address'])){
         header("Location:./sign-up.php?error=You must fill out complete information");
         exit;
     }
@@ -8,6 +10,8 @@
     $email =  addslashes($_POST['email']);
     $password =  addslashes($_POST['password']);
     $re_password =  addslashes($_POST['re_password']);
+    $phone_number =  addslashes($_POST['phone_number']);
+    $address =  addslashes($_POST['address']);
 
     $regex_email =  "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
 
@@ -30,7 +34,8 @@
         exit;
     }
 
-    $sql = "Insert into customers(name, email, password) values('$name', '$email', '$password')";
+    $sql = "Insert into customers(name, email, password, phone_number, address) 
+    values('$name', '$email', '$password', '$phone_number', '$address')";
 
     mysqli_query($conn, $sql);
 
@@ -38,10 +43,10 @@
     $result_id = mysqli_query($conn, $sql_get_id);
     $id = mysqli_fetch_array($result_id)['id'];
 
-    session_start();
-    $_SESSION['name'] = $name;
-    $_SESSION['id'] = $id;
+    // session_start();
+    // $_SESSION['name'] = $name;
+    // $_SESSION['id'] = $id;
 
     mysqli_close($conn);
 
-    header("Location:./index.php");
+    header("Location:./sign-in.php");

@@ -19,14 +19,19 @@
         <input type="email" name="email">
         <br>
 
-        Password
+        Mật khẩu
         <input type="password" name="password">
         <br> 
 
-        Repassword
+        Nhập lại mật khẩu
         <input type="password" name="re_password">
         <br>
-
+        Số điện thoại
+        <input type="text" name="phone_number">
+        <br>
+        Địa chỉ
+        <input type="text" name="address">
+        <br>
         <input type="submit" value="Đăng kí">
     </form>
 </body>

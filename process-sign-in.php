@@ -4,6 +4,12 @@
         exit;
     }
 
+    if(isset($_POST['remember'])){
+        $remember = true;
+    }else{
+        $remember = false;
+    }
+
     require 'admin/connect.php';
     $email = addslashes($_POST['email']);
     $password = addslashes($_POST['password']);
@@ -18,6 +24,20 @@
         session_start();
         $_SESSION['id'] = $data['id'];
         $_SESSION['name'] = $data['name'];
+        if($remember){
+            $id =$data['id'];
+            $token = uniqid('user_', true).time();
+            
+            setcookie("remember", $token, time() + 84600 * 30);
+
+            $sql_set_token = "update customers
+            set
+            token='$token'
+            where id='$id'";
+
+            mysqli_query($conn, $sql_set_token);
+            // die($sql_set_token);
+        }
         header("Location:./index.php");
         exit;
     }
