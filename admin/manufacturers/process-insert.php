@@ -1,4 +1,9 @@
 <?php
+    session_start();
+    if($_SESSION['admin_level'] != 2){
+        header("Location:../index.php");
+        exit;
+    }
 
     if(empty($_POST['name']) || empty($_POST['address']) || empty($_POST['phone']) || empty($_POST['image'])){
         header("Location:./form-insert.php?error=Phải nhập đầy đủ thông tin");

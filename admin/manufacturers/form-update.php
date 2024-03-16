@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    if($_SESSION['admin_level'] != 2){
+        header("Location:../index.php");
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

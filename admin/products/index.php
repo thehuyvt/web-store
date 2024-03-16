@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    if(empty($_SESSION['admin_id'])){
+        header("Location:../index.php");
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,7 +93,9 @@
                     ?>
                 </td>
                 <td><a href="./form-update.php?id=<?php echo $data['id']?>">Sửa</a>
-                <a href="./delete-product.php?id=<?php echo $data['id']?>">Xóa</a>
+                    <?php if($_SESSION['admin_level'] == 2){?> 
+                        <a href="./delete-product.php?id=<?php echo $data['id']?>">Xóa</a>
+                    <?php } ?>
                 </td>
             </tr>
         <?php } ?>

@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    if(empty($_SESSION['admin_level'])){
+        header("Location:../index.php");
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +13,10 @@
     <title>Đây là khu vực admin</title>
 </head>
 <body>
-    Đây là khu vực admin
+    <h3>Đây là khu vực admin, xin chào <?php echo $_SESSION['admin_name'] ?></h3>
     <?php
         require('../menu.php');
     ?>
+    
 </body>
 </html>
