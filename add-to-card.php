@@ -1,9 +1,10 @@
 <?php
+try {
     session_start();
     // unset($_SESSION['cart']);
     if(empty($_GET['id'])){
-        header("Location:./index.php");
-        exit;
+        throw new Exception("không tồn tại id");
+        
     }else{
         $product_id = $_GET['id'];
 
@@ -27,6 +28,11 @@
             }else{
                 $_SESSION['cart'][$product_id]['quantity']++;
             }
-            header("Location:./index.php");
+            // header("Location:./index.php");
         }
     }
+    echo 1;
+} catch (\Throwable $e) {
+    echo $e->getMessage();
+}
+     

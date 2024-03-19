@@ -24,7 +24,10 @@
                                 <p class="product-price"><?php echo $product['price'] ?></p>
                                 <a href="./detail-product.php?id=<?php echo $product['id']?>">Chi tiết</a>
                                 <br>
-                                <a href="./add-to-card.php?id=<?php echo $product['id']?>">Thêm vào giỏ hàng</a>
+                                <button class="btn-add-to-cart" data-id="<?php echo $product['id']?>">
+                                    Thêm vào giỏ hàng
+                                </button>
+                                <!-- <a href="./add-to-card.php?id=<?php echo $product['id']?>">Thêm vào giỏ hàng</a> -->
                                 <br>
                                 <span class="product-manufacturer"><?php 
                                     $manufacturer_id = $product['manufacturer_id'];
@@ -40,7 +43,7 @@
                     <?php } ?>
                 </div>
                 <a href="#" class="see-more">Xem thêm</a>
-            <div class="section">
+            <!-- <div class="section">
                 <h3 class="title-section">Sản phẩm bán chạy nhất</h3>
                 <div class="list-products">
                     <div class="product">
@@ -212,7 +215,34 @@
                     </div>
                 </div>
                 <a href="#" class="see-more">Xem thêm</a>
-            </div>
+            </div> -->
         </div>
     </div></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function(){
+        $(".btn-add-to-cart").click(function(){
+            let id = $(this).data('id');
+
+            $.ajax({
+            url: 'add-to-card.php',
+            type: 'GET',
+            // dataType:'',
+            data: {id},
+            })
+            .done(function(data){
+                if(data == 1){
+                    alert('Thêm sản phẩm vào giỏ hàng thành công');
+                }else{
+                    alert(data);
+                }
+            })
+            .fail(function(){
+                console.log("fail");
+            })
+        });
+
+        
+    });
+</script>
 <?php require './footer.php'; ?>
